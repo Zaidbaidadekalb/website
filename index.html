@@ -1,0 +1,1416 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>very ass key auth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zm20.97 0l9.315 9.314-1.414 1.414L34.828 0h2.83zM22.344 0L13.03 9.314l1.414 1.414L25.172 0h-2.83zM32 0l12.142 12.142-1.414 1.414L30 .828 17.272 13.556l-1.414-1.414L28 0h4zM.284 0l28 28-1.414 1.414L0 2.544V0h.284zM0 5.373l25.456 25.455-1.414 1.415L0 8.2V5.374zm0 5.656l22.627 22.627-1.414 1.414L0 13.86v-2.83zm0 5.656l19.8 19.8-1.415 1.413L0 19.514v-2.83zm0 5.657l16.97 16.97-1.414 1.415L0 25.172v-2.83zM0 28l14.142 14.142-1.414 1.414L0 30.828V28zm0 5.657L11.314 44.97 9.9 46.386l-9.9-9.9v-2.828zm0 5.657L8.485 47.8 7.07 49.212 0 42.143v-2.83zm0 5.657l5.657 5.657-1.414 1.415L0 47.8v-2.83zm0 5.657l2.828 2.83-1.414 1.413L0 53.456v-2.83zM54.627 60L30 35.373 5.373 60H8.2L30 38.2 51.8 60h2.827zm-5.656 0L30 41.03 11.03 60h2.828L30 43.858 46.142 60h2.83zm-5.656 0L30 46.686 16.686 60h2.83L30 49.515 40.485 60h2.83zm-5.657 0L30 52.343 22.343 60h2.83L30 55.172 34.828 60h2.83zM32 60l-2-2-2 2h4zM59.716 0l-28 28 1.414 1.414L60 2.544V0h-.284zM60 5.373L34.544 30.828l1.414 1.415L60 8.2V5.374zm0 5.656L37.373 33.656l1.414 1.414L60 13.86v-2.83zm0 5.656l-19.8 19.8 1.415 1.413L60 19.514v-2.83zm0 5.657l-16.97 16.97 1.414 1.415L60 25.172v-2.83zM60 28L45.858 42.142l1.414 1.414L60 30.828V28zm0 5.657L48.686 44.97l1.415 1.415 9.9-9.9v-2.828zm0 5.657L51.515 47.8l1.414 1.413 7.07-7.07v-2.83zm0 5.657l-5.657 5.657 1.414 1.415L60 47.8v-2.83zm0 5.657l-2.828 2.83 1.414 1.413L60 53.456v-2.83zM39.9 16.385l1.414-1.414L30 3.658 18.686 14.97l1.415 1.415 9.9-9.9 9.9 9.9zm-2.83 2.828l1.415-1.414L30 9.313 21.515 17.8l1.414 1.413 7.07-7.07 7.07 7.07zm-2.827 2.83l1.414-1.416L30 14.97l-5.657 5.657 1.414 1.415L30 17.8l4.243 4.242zm-2.83 2.827l1.415-1.414L30 20.626l-2.828 2.83 1.414 1.414L30 23.456l1.414 1.414zM56.87 59.414L58.284 58 30 29.716 1.716 58l1.414 1.414L30 32.544l26.87 26.87z' fill='%23222222' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+        }
+        
+        .gradient-text-alt {
+            background: linear-gradient(45deg, #f59e0b, #ef4444, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+        }
+        
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: #4a4a4a;
+            border-radius: 5px;
+        }
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #5a5a5a;
+        }
+        
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #6366f1);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+        }
+        
+        .card {
+            background-color: #252525;
+            border: 1px solid #3a3a3a;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .input-field {
+            background-color: #1e1e1e;
+            border: 1px solid #3a3a3a;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #4a4a4a, #5a5a5a);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary {
+            background-color: #3a3a3a;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary:active,
+        .btn-secondary:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        /* Custom Notification Styles */
+        
+        #notificationContainer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .notification {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .notification.success {
+            border-left: 4px solid #4caf50;
+        }
+        
+        .notification.error {
+            border-left: 4px solid #f44336;
+        }
+        
+        .notification.info {
+            border-left: 4px solid #2196f3;
+        }
+        
+        table th {
+            background-color: #2a2a2a;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #2d2d2d;
+        }
+        
+        table tr:nth-child(odd) {
+            background-color: #252525;
+        }
+        
+        table td {
+            border-color: #3a3a3a;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .backdrop-blur-sm {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: 0.4s;
+        }
+        
+        input:checked+.slider {
+            background-color: #2196f3;
+        }
+        
+        input:checked+.slider:before {
+            transform: translateX(18px);
+        }
+        
+        .slider.round {
+            border-radius: 34px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        
+        .toggle-label {
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        /* Dark mode styles */
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #333333;
+        }
+        
+        .transition-all {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Enhanced purple glow effect */
+        
+        .purple-glow {
+            transition: box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .purple-glow:hover {
+            box-shadow: 0 0 10px rgb(132, 0, 255), 0 0 20px rgb(137, 43, 226), 0 0 30px rgba(138, 43, 226, 0.2);
+            transform: scale(1.03);
+        }
+        /* Improved text glow effect */
+        
+        .text-glow {
+            transition: text-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .text-glow:hover {
+            text-shadow: 0 0 5px rgba(138, 43, 226, 0.5), 0 0 10px rgba(138, 43, 226, 0.3), 0 0 15px rgba(138, 43, 226, 0.1);
+            color: #9932CC;
+            /* A slightly lighter purple for better contrast */
+        }
+        /* Smoother pulsating glow animation */
+        
+        @keyframes pulse-glow {
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+                transform: scale(1.02);
+            }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+        /* Smooth color transition */
+        
+        .color-shift {
+            transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .color-shift:hover {
+            background-color: rgb(141, 27, 248);
+            color: #9932CC;
+        }
+        /* Button hover effect */
+        
+        .btn-hover-effect {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .btn-hover-effect:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        /* Input focus effect */
+        
+        .input-focus-effect {
+            transition: border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .input-focus-effect:focus {
+            border-color: rgba(138, 43, 226, 0.5);
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.25);
+        }
+        
+        .card-rotating-border {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            /* Added for smoother corners */
+        }
+        
+        .card-rotating-border::before {
+            content: "";
+            background-image: conic-gradient( from 0deg, #8a2be2 0deg, #ff1493 90deg, #00bfff 180deg, #8a2be2 270deg, #8a2be2 360deg);
+            height: 200%;
+            /* Increased for smoother rotation */
+            width: 200%;
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: rotate 8s infinite linear, pulse 3s infinite alternate;
+            filter: drop-shadow(0 0 8px #8a2be2);
+        }
+        
+        .card-rotating-border:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.05) rotate(-360deg);
+            }
+        }
+        
+        .card-rotating-border::after {
+            content: "";
+            position: absolute;
+            background-color: #252525;
+            inset: 3px;
+            border-radius: inherit;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            /* Added for better content spacing */
+        }
+    </style>
+</head>
+
+<body class="text-gray-300 transition-all">
+    <header class="bg-[#1a1a1a] py-4 shadow-lg transition-all">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold gradient-text">
+                <span class="inline-block transform hover:scale-105 transition-transform duration-300">very ass key auth</span>
+            </h1>
+            <div id="headerContent" class="flex items-center space-x-4">
+                <span id="userWelcome" class="mr-4 text-gray-300 gradient-text-alt"></span>
+                <button id="logoutBtn" class="btn-secondary text-gray-200 px-4 py-2 rounded hover:bg-gray-700 hover:text-white transition-all purple-glow hidden">
+                    Logout
+                </button>
+                <button id="darkModeToggle" class="btn-secondary text-gray-200 px-4 py-2 rounded hover:bg-gray-700 hover:text-white transition-all purple-glow">
+                    Toggle Dark Mode
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="loadingOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+    </div>
+    <div id="loginContainer" class="container mx-auto px-4 py-8 flex items-center justify-center min-h-screen">
+        <div class="card card-rotating-border p-8 rounded-lg shadow-lg w-full max-w-md animate-fade-in">
+            <div class="card-content">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-text">Login</h2>
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label for="username" class="block mb-1 text-gray-400">Username</label>
+                        <input id="username" required class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500 purple-glow" />
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-1 text-gray-400">Password</label>
+                        <input type="password" id="password" required class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500 purple-glow" />
+                    </div>
+                    <button type="submit" class="w-full btn-primary text-gray-200 px-4 py-2 rounded hover:opacity-90 transition-all purple-glow">
+                        Login
+                    </button>
+                </form>
+                <div class="mt-4 text-center">
+                    <button id="resetPasswordBtn" class="text-gray-400 underline hover:text-gray-200 transition-all text-glow">
+                        Forgot Password?
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="resetPasswordContainer" class="container mx-auto px-4 py-8 flex items-center justify-center min-h-screen hidden">
+        <div class="card card-rotating-border p-8 rounded-lg shadow-lg w-full max-w-md animate-fade-in purple-glow">
+            <div class="card-content">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    Reset Password
+                </h2>
+                <form id="resetPasswordForm" class="space-y-4">
+                    <div>
+                        <label for="resetUsername" class="block mb-1 text-gray-400">Username</label>
+                        <input type="text" id="resetUsername" required class="w-full p-2 rounded input-field text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div>
+                        <label for="newPassword" class="block mb-1 text-gray-400">New Password</label>
+                        <input type="password" id="newPassword" required class="w-full p-2 rounded input-field text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <button type="submit" class="w-full btn-primary text-white px-4 py-2 rounded hover:opacity-90 transition duration-300">
+                        Reset Password
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboardContainer" class="container mx-auto px-4 py-8 animate-fade-in hidden">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card card-rotating-border p-6 rounded-lg shadow-lg animate-slide-in">
+                <div class="card-content">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-200">Generate Key</h2>
+                    <form id="generateKeyForm" class="space-y-4">
+                        <div>
+                            <label for="customKey" class="block mb-1 text-gray-400">Custom Key (optional)</label
+                          >
+                          <input id="customKey" class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500 purple-glow" />
+            
+                        </div>
+                        <div>
+                          <div class="relative">
+                            <label for="expirationDate" class="block mb-1 text-gray-400"
+                              >Expiration Date</label
+                            >
+                            <input
+                              type="text"
+                              id="expirationDate"
+                              required
+                              class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500"
+                              readonly
+                            />
+                            <div
+                              id="customDatepicker"
+                              class="absolute z-10 mt-1 w-full bg-gray-700 rounded-md shadow-lg hidden"
+                            >
+                              <div class="p-2">
+                                <div class="flex justify-between items-center mb-2">
+                                  <button
+                                    type="button"
+                                    id="prevMonthCustom"
+                                    class="text-gray-400 hover:text-white"
+                                  >
+                                    &lt;
+                                  </button>
+                                  <span
+                                    id="currentMonthCustom"
+                                    class="text-white font-semibold"
+                                  ></span>
+                                  <button
+                                    type="button"
+                                    id="nextMonthCustom"
+                                    class="text-gray-400 hover:text-white"
+                                  >
+                                    &gt;
+                                  </button>
+                                </div>
+                                <div
+                                  id="calendarCustom"
+                                  class="grid grid-cols-7 gap-1"
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <label for="maxUsage" class="block mb-1 text-gray-400"
+                            >Max Usage</label
+                          >
+                          <input type="number" id="maxUsage" required class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500 purple-glow" value="1" />
+            
+                        </div>
+                        <div>
+                          <label for="hwid" class="block mb-1 text-gray-400"
+                            >HWID (optional)</label
+                          >
+                          <input
+                            id="hwid"
+                            class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500"
+                          />
+                        </div>
+                        <div class="form-group">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="isWhitelisted" name="isWhitelisted" class="purple-glow" />
+                                <span class="slider round purple-glow"></span>
+                            </label>
+                            <span class="toggle-label">Is Whitelisted</span>
+                        </div>
+                        <button type="submit" class="w-full btn-primary text-gray-200 px-4 py-2 rounded hover:opacity-90 transition-all purple-glow">
+                            Generate Key
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card card-rotating-border p-6 rounded-lg shadow-lg animate-slide-in">
+                <div class="card-content">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-200">Add New User</h2>
+                    <form id="addUserForm" class="space-y-4">
+                        <div>
+                            <label for="newUsername" class="block mb-1 text-gray-400">Username</label>
+                            <input id="newUsername" required class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500" />
+                        </div>
+                        <div>
+                            <label for="newPassword" class="block mb-1 text-gray-400">Password</label>
+                            <input type="password" id="newPassword" required class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500" />
+                        </div>
+                        <div>
+                            <label for="newRole" class="block mb-1 text-gray-400">Role</label>
+                            <select id="newRole" required class="w-full p-2 rounded input-field focus:outline-none focus:ring-2 focus:ring-gray-500">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+                        </div>
+                        <button type="submit" class="w-full btn-primary text-gray-200 px-4 py-2 rounded hover:opacity-90 transition-all purple-glow">
+                            Add User
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-8 p-6 rounded-lg shadow-lg animate-slide-in overflow-x-auto">
+            <div class="card-content">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-200">All Keys</h2>
+                <div class="flex justify-between items-center mb-4">
+                    <button id="deleteAllKeysBtn" class="btn-secondary text-gray-200 px-4 py-2 rounded hover:opacity-90 transition-all purple-glow">
+                        Delete All Keys
+                    </button>
+                </div>
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="gradient-bg text-gray-200">
+                            <th class="p-2 rounded-tl">ID</th>
+                            <th class="p-2">Key</th>
+                            <th class="p-2">Expiration Date</th>
+                            <th class="p-2">Is Whitelisted</th>
+                            <th class="p-2">Usage Count</th>
+                            <th class="p-2">Max Usage</th>
+                            <th class="p-2">Last Used</th>
+                            <th class="p-2">HWID</th>
+                            <th class="p-2 rounded-tr">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="keysTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card  mt-8 p-6 rounded-lg shadow-lg animate-slide-in">
+            <div class="card-content">
+                <h2 class="text-2xl font-semibold mb-4 text-white">Server Status</h2>
+                <p id="serverStatus" class="text-lg text-gray-400">
+                    Checking server status...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="editKeyModal" class="fixed inset-0 z-50 overflow-y-auto h-full w-full hidden">
+        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in-out" id="modalBackdrop"></div>
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-gray-800 border-gray-700 transform scale-95 opacity-0 transition-all duration-300 ease-in-out" id="modalContent">
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-white" id="modalTitle">
+                    Edit Key
+                </h3>
+                <div class="mt-2 px-7 py-3">
+                    <form id="editKeyForm" class="space-y-4">
+                        <div class="relative">
+                            <label for="editExpirationDate" class="block mb-1 text-gray-400">Expiration Date</label
+                >
+                <input
+                  type="text"
+                  id="editExpirationDate"
+                  required
+                  class="w-full p-2 rounded input-field text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  readonly
+                />
+                <div
+                  id="datepicker"
+                  class="absolute z-10 mt-1 w-full bg-gray-700 rounded-md shadow-lg hidden"
+                >
+                  <div class="p-2">
+                    <div class="flex justify-between items-center mb-2">
+                      <button
+                        type="button"
+                        id="prevMonth"
+                        class="text-gray-400 hover:text-white"
+                      >
+                        &lt;
+                      </button>
+                      <span
+                        id="currentMonth"
+                        class="text-white font-semibold"
+                      ></span>
+                      <button
+                        type="button"
+                        id="nextMonth"
+                        class="text-gray-400 hover:text-white"
+                      >
+                        &gt;
+                      </button>
+                    </div>
+                    <div id="calendar" class="grid grid-cols-7 gap-1"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <label class="inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    id="editIsWhitelisted"
+                    class="sr-only"
+                  />
+                  <div
+                    class="relative w-10 h-5 bg-gray-600 rounded-full shadow-inner transition-colors duration-300 ease-in-out"
+                  >
+                    <div
+                      class="absolute w-4 h-4 bg-white rounded-full shadow inset-y-0.5 left-0.9 transition-transform duration-300 ease-in-out transform translate-x-0"
+                    ></div>
+                  </div>
+                  <span class="ml-3 text-gray-400">Is Whitelisted</span>
+                </label>
+                        </div>
+                        <div>
+                            <label for="editMaxUsage" class="block mb-1 text-gray-400">Max Usage</label
+                >
+                <input
+                  type="number"
+                  id="editMaxUsage"
+                  required
+                  class="w-full p-2 rounded input-field text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div class="flex justify-between mt-4">
+                <button
+                  type="button"
+                  id="cancelEditKey"
+                  class="btn-secondary text-white px-4 py-2 rounded hover:opacity-90 transition duration-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  class="btn-primary text-white px-4 py-2 rounded hover:opacity-90 transition duration-300"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="notificationContainer"></div>
+
+    <script>
+      const apiBaseUrl = "http://76.17.1.200:5000";
+
+      // Custom Notification Function
+      function showNotification(message, type = "info") {
+        const notificationContainer = document.getElementById(
+          "notificationContainer"
+        );
+        const notification = document.createElement("div");
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()" class="ml-4 text-gray-400 hover:text-white">×</button>
+            `;
+        notificationContainer.appendChild(notification);
+        setTimeout(() => notification.remove(), 5000); // Remove after 5 seconds
+      }
+
+      function showLoginForm() {
+        document.getElementById("loginContainer").classList.remove("hidden");
+        document.getElementById("dashboardContainer").classList.add("hidden");
+        document
+          .getElementById("resetPasswordContainer")
+          .classList.add("hidden");
+        document.getElementById("logoutBtn").classList.add("hidden");
+      }
+
+      function showDashboard() {
+        document.getElementById("loginContainer").classList.add("hidden");
+        document
+          .getElementById("dashboardContainer")
+          .classList.remove("hidden");
+        document.getElementById("logoutBtn").classList.remove("hidden");
+        document
+          .getElementById("resetPasswordContainer")
+          .classList.add("hidden");
+      }
+
+      function showResetPasswordForm() {
+        document.getElementById("loginContainer").classList.add("hidden");
+        document
+          .getElementById("resetPasswordContainer")
+          .classList.remove("hidden");
+        document.getElementById("dashboardContainer").classList.add("hidden");
+        document.getElementById("logoutBtn").classList.add("hidden");
+      }
+
+      function checkAuthentication() {
+        const token = localStorage.getItem("authToken");
+        const username = localStorage.getItem("username");
+        if (!token || !username) {
+          showLoginForm();
+        } else {
+          document.getElementById(
+            "userWelcome"
+          ).textContent = `Welcome, ${username}!`;
+          showDashboard();
+          fetchKeys();
+          fetchServerStatus();
+          setInterval(fetchServerStatus, 30000); // Check server status every 30 seconds
+        }
+      }
+
+      function checkUserRole() {
+  const userRole = localStorage.getItem("userRole");
+  const adminElements = document.querySelectorAll(".admin-only");
+  adminElements.forEach(element => {
+    if (userRole === "admin") {
+      element.classList.remove("hidden");
+    } else {
+      element.classList.add("hidden");
+    }
+  });
+}
+
+document.getElementById("loginForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  try {
+    const response = await axios.post(`${apiBaseUrl}/login`, {
+      username,
+      password,
+    });
+    if (response.data.token) {
+      showNotification("Login successful", "success");
+      localStorage.setItem("authToken", response.data.token);
+      localStorage.setItem("username", username);
+      localStorage.setItem("userRole", response.data.role);
+      checkAuthentication();
+      checkUserRole();
+    } else {
+      showNotification("Login failed. Please check your credentials.", "error");
+    }
+  } catch (error) {
+    showNotification("Login failed. Please try again.", "error");
+    console.error("Error logging in:", error);
+  }
+});
+
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("username");
+        showNotification("Logged out successfully", "info");
+        checkAuthentication();
+      });
+
+      document
+        .getElementById("resetPasswordBtn")
+        .addEventListener("click", showResetPasswordForm);
+
+      document
+        .getElementById("resetPasswordForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const username = document.getElementById("resetUsername").value;
+          const newPassword = document.getElementById("newPassword").value;
+          try {
+            await axios.post(`${apiBaseUrl}/reset-password`, {
+              username,
+              newPassword,
+            });
+            showNotification("Password reset successfully", "success");
+            showLoginForm();
+          } catch (error) {
+            showNotification(
+              "Failed to reset password. Please try again.",
+              "error"
+            );
+            console.error("Error resetting password:", error);
+          }
+        });
+
+      document
+        .getElementById("generateKeyForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const customKey = document.getElementById("customKey").value;
+          const expirationDate =
+            document.getElementById("expirationDate").value;
+          const isWhitelisted =
+            document.getElementById("isWhitelisted").checked;
+          const maxUsage = document.getElementById("maxUsage").value;
+          const hwid = document.getElementById("hwid").value;
+
+          try {
+            const authToken = localStorage.getItem("authToken");
+            await axios.post(
+              `${apiBaseUrl}/keys`,
+              {
+                key: customKey,
+                expirationDate,
+                isWhitelisted,
+                maxUsage,
+                hwid,
+              },
+              {
+                headers: { Authorization: `Bearer ${authToken}` },
+              }
+            );
+            showNotification("Key generated successfully", "success");
+            fetchKeys();
+          } catch (error) {
+            showNotification("Key generation failed", "error");
+            console.error("Error generating key:", error);
+          }
+        });
+
+        document.getElementById("addUserForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const newUsername = document.getElementById("newUsername").value;
+  const newPassword = document.getElementById("newPassword").value;
+  const newRole = document.getElementById("newRole").value;
+  try {
+    const token = localStorage.getItem("authToken");
+    const response = await axios.post(
+      `${apiBaseUrl}/register`,
+      { username: newUsername, password: newPassword, role: newRole },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    showNotification("User added successfully", "success");
+    document.getElementById("addUserForm").reset();
+  } catch (error) {
+    showNotification("Failed to add user. Please try again.", "error");
+    console.error("Error adding user:", error);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  checkAuthentication();
+  checkUserRole();
+});
+
+      let autoFetchInterval;
+
+      async function fetchKeys() {
+        try {
+          const authToken = localStorage.getItem("authToken");
+          const response = await axios.get(`${apiBaseUrl}/keys`, {
+            headers: { Authorization: `Bearer ${authToken}` },
+          });
+          const keysTableBody = document.getElementById("keysTableBody");
+          keysTableBody.innerHTML = "";
+          response.data.forEach((key) => {
+            const row = document.createElement("tr");
+            row.className = "hover:bg-gray-800 transition-colors duration-200";
+            row.innerHTML = `
+                        <td class="p-2 border-t border-gray-700">${key.id}</td>
+                        <td class="p-2 border-t border-gray-700">${key.key}</td>
+                        <td class="p-2 border-t border-gray-700">${
+                          key.expirationDate
+                        }</td>
+                        <td class="p-2 border-t border-gray-700">${
+                          key.isWhitelisted ? "Yes" : "No"
+                        }</td>
+                        <td class="p-2 border-t border-gray-700">${
+                          key.usageCount
+                        }</td>
+                        <td class="p-2 border-t border-gray-700">${
+                          key.maxUsage
+                        }</td>
+                        <td class="p-2 border-t border-gray-700">${
+                          key.lastUsed
+                            ? new Date(key.lastUsed).toLocaleString()
+                            : "N/A"
+                        }</td>
+                        <td class="p-2 border-t border-gray-700">${
+                          key.hwid || "N/A"
+                        }</td>
+                        <td class="p-2 border-t border-gray-700">
+                            <button onclick="editKey(${
+                              key.id
+                            })" class="btn-secondary text-white px-3 py-1 rounded hover:opacity-90 transition duration-300">Edit</button>
+                        </td>
+                    `;
+            keysTableBody.appendChild(row);
+          });
+          showNotification("Keys fetched successfully", "success");
+        } catch (error) {
+          if (error.response && error.response.status === 503) {
+            showNotification("Server is paused. Cannot fetch keys.", "warning");
+            stopAutoFetch();
+          } else {
+            showNotification("Error fetching keys", "error");
+          }
+          console.error("Error fetching keys:", error);
+        }
+      }
+
+      function startAutoFetch() {
+        if (!autoFetchInterval) {
+          autoFetchInterval = setInterval(fetchKeys, 10000);
+          showNotification("Auto-fetch started", "info");
+        } else {
+          showNotification("Auto-fetch is already running", "info");
+        }
+      }
+
+      let currentDateCustom = new Date();
+
+      function updateCalendarCustom() {
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const calendar = document.getElementById("calendarCustom");
+        const currentMonthElement =
+          document.getElementById("currentMonthCustom");
+
+        currentMonthElement.textContent = `${
+          monthNames[currentDateCustom.getMonth()]
+        } ${currentDateCustom.getFullYear()}`;
+
+        calendar.innerHTML = "";
+
+        const firstDay = new Date(
+          currentDateCustom.getFullYear(),
+          currentDateCustom.getMonth(),
+          1
+        );
+        const lastDay = new Date(
+          currentDateCustom.getFullYear(),
+          currentDateCustom.getMonth() + 1,
+          0
+        );
+
+        for (let i = 0; i < firstDay.getDay(); i++) {
+          calendar.appendChild(document.createElement("div"));
+        }
+
+        for (let i = 1; i <= lastDay.getDate(); i++) {
+          const dayElement = document.createElement("div");
+          dayElement.textContent = i;
+          dayElement.classList.add(
+            "text-center",
+            "py-1",
+            "rounded",
+            "cursor-pointer",
+            "hover:bg-gray-600"
+          );
+
+          if (
+            i === new Date().getDate() &&
+            currentDateCustom.getMonth() === new Date().getMonth() &&
+            currentDateCustom.getFullYear() === new Date().getFullYear()
+          ) {
+            dayElement.classList.add("bg-blue-500", "text-white");
+          } else {
+            dayElement.classList.add("text-gray-300");
+          }
+
+          dayElement.addEventListener("click", () => selectDateCustom(i));
+          calendar.appendChild(dayElement);
+        }
+      }
+
+      function selectDateCustom(day) {
+        const selectedDate = new Date(
+          currentDateCustom.getFullYear(),
+          currentDateCustom.getMonth(),
+          day
+        );
+        document.getElementById("expirationDate").value = selectedDate
+          .toISOString()
+          .split("T")[0];
+        document.getElementById("customDatepicker").classList.add("hidden");
+      }
+
+      document
+        .getElementById("expirationDate")
+        .addEventListener("click", () => {
+          document
+            .getElementById("customDatepicker")
+            .classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("prevMonthCustom")
+        .addEventListener("click", () => {
+          currentDateCustom.setMonth(currentDateCustom.getMonth() - 1);
+          updateCalendarCustom();
+        });
+
+      document
+        .getElementById("nextMonthCustom")
+        .addEventListener("click", () => {
+          currentDateCustom.setMonth(currentDateCustom.getMonth() + 1);
+          updateCalendarCustom();
+        });
+
+      // Close datepicker when clicking outside
+      document.addEventListener("click", (event) => {
+        const datepicker = document.getElementById("customDatepicker");
+        const dateInput = document.getElementById("expirationDate");
+        if (!datepicker.contains(event.target) && event.target !== dateInput) {
+          datepicker.classList.add("hidden");
+        }
+      });
+
+      // Initialize the custom datepicker
+      updateCalendarCustom();
+
+      function stopAutoFetch() {
+        if (autoFetchInterval) {
+          clearInterval(autoFetchInterval);
+          autoFetchInterval = null;
+          showNotification("Auto-fetch stopped", "info");
+        } else {
+          showNotification("Auto-fetch is not running", "info");
+        }
+      }
+
+      // Call this function when the page loads to start auto-fetching
+      document.addEventListener("DOMContentLoaded", startAutoFetch);
+
+      let currentEditKeyId = null;
+      let currentDate = new Date();
+
+      function showEditKeyModal(keyId) {
+        currentEditKeyId = keyId;
+        const modal = document.getElementById("editKeyModal");
+        const backdrop = document.getElementById("modalBackdrop");
+        const content = document.getElementById("modalContent");
+
+        modal.classList.remove("hidden");
+        document.body.classList.add("overflow-hidden");
+
+        // Trigger animations
+        setTimeout(() => {
+          backdrop.classList.add("opacity-50");
+          content.classList.remove("scale-95", "opacity-0");
+          content.classList.add("scale-100", "opacity-100");
+        }, 10);
+
+        updateCalendar();
+      }
+
+      function hideEditKeyModal() {
+        const modal = document.getElementById("editKeyModal");
+        const backdrop = document.getElementById("modalBackdrop");
+        const content = document.getElementById("modalContent");
+
+        // Trigger reverse animations
+        backdrop.classList.remove("opacity-50");
+        content.classList.remove("scale-100", "opacity-100");
+        content.classList.add("scale-95", "opacity-0");
+
+        // Hide modal after animation completes
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+          currentEditKeyId = null;
+        }, 300);
+      }
+
+      document
+        .getElementById("cancelEditKey")
+        .addEventListener("click", hideEditKeyModal);
+
+      document
+        .getElementById("editKeyForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const newExpirationDate =
+            document.getElementById("editExpirationDate").value;
+          const isWhitelisted =
+            document.getElementById("editIsWhitelisted").checked;
+          const maxUsage = document.getElementById("editMaxUsage").value;
+
+          try {
+            const token = localStorage.getItem("authToken");
+            await axios.put(
+              `${apiBaseUrl}/keys/${currentEditKeyId}`,
+              {
+                expirationDate: newExpirationDate,
+                isWhitelisted,
+                maxUsage,
+              },
+              {
+                headers: { Authorization: `Bearer ${token}` },
+              }
+            );
+            showNotification("Key updated successfully", "success");
+            hideEditKeyModal();
+            fetchKeys();
+          } catch (error) {
+            showNotification("Key update failed", "error");
+            console.error("Error updating key:", error);
+          }
+        });
+
+      function editKey(keyId) {
+        showEditKeyModal(keyId);
+      }
+
+      document
+        .getElementById("editIsWhitelisted")
+        .addEventListener("change", function () {
+          const toggle = this.nextElementSibling;
+          const innerCircle = toggle.querySelector("div");
+          if (this.checked) {
+            toggle.classList.remove("bg-gray-600");
+            toggle.classList.add("bg-blue-600");
+            innerCircle.classList.remove("translate-x-0");
+            innerCircle.classList.add("translate-x-5");
+          } else {
+            toggle.classList.remove("bg-blue-600");
+            toggle.classList.add("bg-gray-600");
+            innerCircle.classList.remove("translate-x-5");
+            innerCircle.classList.add("translate-x-0");
+          }
+        });
+
+      // Close modal when clicking outside
+      document
+        .getElementById("editKeyModal")
+        .addEventListener("click", function (event) {
+          if (event.target === this) {
+            hideEditKeyModal();
+          }
+        });
+
+      // Close modal with Esc key
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Escape" &&
+          !document.getElementById("editKeyModal").classList.contains("hidden")
+        ) {
+          hideEditKeyModal();
+        }
+      });
+
+      // Custom date picker functionality
+      function updateCalendar() {
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const calendar = document.getElementById("calendar");
+        const currentMonthElement = document.getElementById("currentMonth");
+
+        currentMonthElement.textContent = `${
+          monthNames[currentDate.getMonth()]
+        } ${currentDate.getFullYear()}`;
+
+        calendar.innerHTML = "";
+
+        const firstDay = new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          1
+        );
+        const lastDay = new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth() + 1,
+          0
+        );
+
+        for (let i = 0; i < firstDay.getDay(); i++) {
+          calendar.appendChild(document.createElement("div"));
+        }
+
+        for (let i = 1; i <= lastDay.getDate(); i++) {
+          const dayElement = document.createElement("div");
+          dayElement.textContent = i;
+          dayElement.classList.add(
+            "text-center",
+            "py-1",
+            "rounded",
+            "cursor-pointer",
+            "hover:bg-gray-600"
+          );
+
+          if (
+            i === new Date().getDate() &&
+            currentDate.getMonth() === new Date().getMonth() &&
+            currentDate.getFullYear() === new Date().getFullYear()
+          ) {
+            dayElement.classList.add("bg-blue-500", "text-white");
+          } else {
+            dayElement.classList.add("text-gray-300");
+          }
+
+          dayElement.addEventListener("click", () => selectDate(i));
+          calendar.appendChild(dayElement);
+        }
+      }
+
+      function selectDate(day) {
+        const selectedDate = new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          day
+        );
+        document.getElementById("editExpirationDate").value = selectedDate
+          .toISOString()
+          .split("T")[0];
+        document.getElementById("datepicker").classList.add("hidden");
+      }
+
+      document
+        .getElementById("editExpirationDate")
+        .addEventListener("click", () => {
+          document.getElementById("datepicker").classList.toggle("hidden");
+        });
+
+      document.getElementById("prevMonth").addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        updateCalendar();
+      });
+
+      document.getElementById("nextMonth").addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        updateCalendar();
+      });
+
+      // Close datepicker when clicking outside
+      document.addEventListener("click", (event) => {
+        const datepicker = document.getElementById("datepicker");
+        const dateInput = document.getElementById("editExpirationDate");
+        if (!datepicker.contains(event.target) && event.target !== dateInput) {
+          datepicker.classList.add("hidden");
+        }
+      });
+      async function fetchServerStatus() {
+        try {
+          const response = await axios.get(`${apiBaseUrl}/status`);
+          const statusElement = document.getElementById("serverStatus");
+          statusElement.innerHTML = `Status: ${response.data.status}<br>Runtime: ${response.data.runtime}`;
+          // Removed the notification to avoid spamming the user with notifications
+        } catch (error) {
+          document.getElementById("serverStatus").textContent =
+            "Error fetching server status";
+          showNotification("Error fetching server status", "error");
+          console.error("Error fetching server status:", error);
+        }
+      }
+
+      function startAutomaticStatusCheck() {
+        // Fetch status immediately
+        fetchServerStatus();
+
+        // Then fetch every 5 seconds (5000 milliseconds)
+        setInterval(fetchServerStatus, 1000);
+      }
+      document.addEventListener("DOMContentLoaded", startAutomaticStatusCheck);
+      startAutomaticStatusCheck();
+
+      document
+  .getElementById("deleteAllKeysBtn")
+  .addEventListener("click", async () => {
+    if (
+      confirm(
+        "Are you sure you want to delete all keys? This action cannot be undone."
+      )
+    ) {
+      try {
+        const token = localStorage.getItem("authToken");
+        await axios.delete(`${apiBaseUrl}/keys`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        showNotification(
+          "All keys have been deleted successfully",
+          "success"
+        );
+        fetchKeys();
+      } catch (error) {
+        showNotification(
+          "Failed to delete all keys. Please try again.",
+          "error"
+        );
+        console.error("Error deleting all keys:", error);
+      }
+    }
+  });
+
+      document.addEventListener("DOMContentLoaded", );
+    </script>
+  </body>
+</html>
